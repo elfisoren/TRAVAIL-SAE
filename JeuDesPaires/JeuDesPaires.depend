@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1701780990 source:/home/dm301765/SAE/JeuDesPaires/main.c
+	<ncurses.h>
+	<stdlib.h>
+	<time.h>
+
