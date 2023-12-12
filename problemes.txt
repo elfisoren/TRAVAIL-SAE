@@ -20,3 +20,8 @@ Optionnal: faire un générateur de message de victoire qui choisirait dans une 
 
 
 
+
+
+fonction Flush dans la fonction attente qui permet de fluidifier 
+
+FAIRE UNE PARTIE DEBUG AVEC TOUTES LES INFOS LE PROF EST TRES FRIANT
