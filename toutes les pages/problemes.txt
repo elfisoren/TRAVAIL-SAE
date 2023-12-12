@@ -1,0 +1,27 @@
+PAGE_MENU :
+Problème sur la page 1 où il faut pouvoir ne rentrer qu'un seul caractère
+et lorsque le joueur ne rentre pas le bon caractère que ça mette le message d'aide (choisir 1 ou 2) et qu'on puisse directement re rentrer une valeur,optimiser le tout
+
+PAGE_AFFICHAGE_JEU :
+Problème mineur qui touche le chrono à partir de 10 minutes bug(si pas le temps pas de changements).
+Problème manque une 3 ème box pour mettre le highscore
+problème il faut pouvoir centrer le gameplay du jeu avec l'affichage et faire en sorte que le chrono tourne avec le jeu sans bug.
+
+JEU_GAMEPLAY :
+Problème de fluidité lorsque l'on choisit 2 cartes ça attend 2 secondes mais si on appuie sur la touche se déplacer ça fait tous les déplacements instantanément après les 2 secondes (possible de déplacer de 10 cases )
+problème d'affichage sur la carte du milieu droite qui si sélectionner en premier ça marche si sélectionner en 2 eme problème se met à gauche.
+Lors de la sélection de 2 cartes le chrono se freeze mais le temps est correcte pas de bug concret.
+
+TEST_HIGHSCORE :
+Il faudrait tester l'efficacité de tous les tris, pour avoir une fluidité optimal si beaucoup de highscores .il vaudrait mieux soit mettre une poubelle après le tri(pour les highscores en dessous du 3ème), soit mettre en place un écran en plus (écran de victoire) pour ajouter de l'oginalité si possible une animation si le temps
+
+
+Optionnal: faire un générateur de message de victoire qui choisirait dans une base de donnée. Si possible faire la même avec des petites animations
+
+
+
+
+
+fonction Flush dans la fonction attente qui permet de fluidifier 
+
+FAIRE UNE PARTIE DEBUG AVEC TOUTES LES INFOS LE PROF EST TRES FRIANT

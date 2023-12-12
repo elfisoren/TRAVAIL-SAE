@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1702373355 source:/home/fv306702/Documents/toutes les pages/PROJET_COMPLET/main.c
+	<stdio.h>
+	<stdlib.h>
+	<ncurses.h>
+
+1702374074 source:/home/fv306702/Documents/toutes les pages/PROJET_COMPLET/Menu.c
+	<stdio.h>
+	<stdlib.h>
+	<ncurses.h>
+
