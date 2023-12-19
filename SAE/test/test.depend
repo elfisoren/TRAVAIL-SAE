@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1702980206 source:/home/fv306702/Documents/SAE/test/main.c
+	<stdio.h>
+	<stdlib.h>
+	<ncurses.h>
+

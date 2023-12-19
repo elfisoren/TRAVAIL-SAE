@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1702981100 source:/home/fv306702/Documents/SAE/JEU_TEST/main.c
+	<ncurses.h>
+	<string.h>
+	<time.h>
+
+1702981100 source:/home/fv306702/Documents/SAE/JEU_TEST/jeu.c
+	<ncurses.h>
+	<string.h>
+	<time.h>
+
