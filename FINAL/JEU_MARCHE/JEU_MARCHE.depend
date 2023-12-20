@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1703065254 source:/home/fv306702/Documents/SAE/FINAL/JEU_MARCHE/main.c
+	<stdio.h>
+	<stdlib.h>
+	"tools.h"
+
+1703065190 /home/fv306702/Documents/SAE/FINAL/JEU_MARCHE/tools.h
+
+1703065969 source:/home/fv306702/Documents/SAE/FINAL/JEU_MARCHE/tools.c
+	<stdio.h>
+	<stdlib.h>
+	<ncurses.h>
+
