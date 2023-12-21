@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1703162170 source:/home/dm301765/Documents/SAE/Projet_Final/Tools.c
+	<stdio.h>
+	<stdlib.h>
+	<ncurses.h>
+	<string.h>
+
+1703162296 source:/home/dm301765/Documents/SAE/Projet_Final/main.c
+	<stdio.h>
+	<stdlib.h>
+	"Tools.h"
+	<ncurses.h>
+	<string.h>
+	<time.h>
+
+1703162295 /home/dm301765/Documents/SAE/Projet_Final/Tools.h
+	<stdio.h>
+	<stdlib.h>
+	<ncurses.h>
+	<string.h>
+	<time.h>
+
