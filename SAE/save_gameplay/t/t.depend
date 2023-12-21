@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1703144441 source:/home/fv306702/Documents/SAE/save_gameplay/t/main.c
+	<ncurses.h>
+	<stdlib.h>
+	<time.h>
+

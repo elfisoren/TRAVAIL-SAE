@@ -30,34 +30,11 @@ void melangerCartes(char cartes[LIGNES * COLONNES]) {
     }
 }
 
-void afficherCarte(int indice, char carte, bool carteVisible, bool estSelectionnee) {
-    if (estSelectionnee) {
-        //attron(A_REVERSE); // Activer l'inversion des couleurs
-        attron(COLOR_PAIR(1)); // Rouge pour la sélection
-    } else if (carteVisible) {
-        //attron(COLOR_PAIR(2)); // Vert pour les cartes retournées
-    }
-
-    mvprintw(indice / COLONNES * 4, (indice % COLONNES) * 8, " #-----#");
-    mvprintw(indice / COLONNES * 4 + 1, (indice % COLONNES) * 8, " #     #");
-    mvprintw(indice / COLONNES * 4 + 2, (indice % COLONNES) * 8, " #  %c  #", carteVisible ? carte : ' ');
-    mvprintw(indice / COLONNES * 4 + 3, (indice % COLONNES) * 8, " #-----#");
 
 
-    if (estSelectionnee || carteVisible) {
-        attroff(COLOR_PAIR(1));
-        //attroff(COLOR_PAIR(2));
-        //attroff(A_REVERSE);
-    }
-}
 
-char autoplayer()
-{
-char l[3] = {'a','z',10};
-    int i = rand() % 3;
-    return l[i];
 
-}
+
 
 
 void afficherCartes(char cartes[LIGNES * COLONNES], bool cartesVisibles[LIGNES * COLONNES], int carteSelectionnee) {
@@ -71,12 +48,27 @@ void afficherCartes(char cartes[LIGNES * COLONNES], bool cartesVisibles[LIGNES *
 
 
 
-// a mettre modifier pour la box t'as capté
-void afficherTimer(time_t debutTimer) {
-    if (debutTimer != 0) {
-        time_t maintenant = time(NULL);
-        int duree = (int)difftime(maintenant, debutTimer);
-        mvprintw(LIGNES * 4, 0, "Temps écoulé : %d secondes", duree);
+
+
+
+
+void afficherCarte(int indice, char carte, bool carteVisible, bool estSelectionnee) {
+   if (estSelectionnee) {
+                                                                                //attron(A_REVERSE); // Activer l'inversion des couleurs
+        attron(COLOR_PAIR(1));                                                  // Rouge pour la sélection
+    } else if (carteVisible) {
+                                                                                //attron(COLOR_PAIR(2)); // Vert pour les cartes retournées
+    }
+    int hauteur = LINES / 2 - 4 + (indice / COLONNES) * 4;
+    int largeur = COLS / 2 - 24 + (indice % COLONNES) * 8;
+
+    mvprintw(hauteur, largeur, " #-----#");
+    mvprintw(hauteur + 1, largeur, " #     #");
+    mvprintw(hauteur + 2, largeur, " #  %c  #", carteVisible ? carte : ' ');
+    mvprintw(hauteur + 3, largeur, " #-----#");
+
+    if (estSelectionnee || carteVisible) {
+        attroff(COLOR_PAIR(1));
     }
 }
 
@@ -84,19 +76,15 @@ void afficherTimer(time_t debutTimer) {
 
 
 
+void afficherTimer(time_t debutTimer) {
+   if (debutTimer != 0) {
+        time_t maintenant = time(NULL);
+        int duree = (int)difftime(maintenant, debutTimer);
+        mvprintw(LIGNES * 4, 0, "Temps écoulé : %d secondes", duree);
+    }
+}
 
-int main() {
-    initscr(); // Initialiser l'environnement ncurses
-    curs_set(0);
-    noecho();
-    start_color(); // Activer la prise en charge des couleurs
-    init_pair(1, COLOR_RED, COLOR_BLACK); // Rouge pour la sélection et les cartes retournées
-    init_pair(2, COLOR_GREEN, COLOR_BLACK); // Vert pour les cartes retournées
-
-    raw(); // Désactiver le buffering de ligne
-    keypad(stdscr, TRUE); // Activer la prise en charge des touches spéciales
-    nodelay(stdscr, TRUE); // Mode non bloquant pour getch()
-
+void jouerMemory() {
     char cartes[LIGNES * COLONNES];
     bool cartesVisibles[LIGNES * COLONNES] = {false};
 
@@ -108,40 +96,40 @@ int main() {
 
     int pairesTrouvees = 0;
     time_t debutTimer = 0;
-    bool timerDemarre = false; // Nouvelle variable pour gérer le démarrage du timer
+    bool timerDemarre = false;
+
+    clear();  // Déplacer l'effacement de l'écran à l'extérieur de la boucle principale
 
     while (pairesTrouvees < LIGNES * COLONNES / 2) {
-        clear(); // Effacer l'écran
-
         afficherCartes(cartes, cartesVisibles, carteSelectionnee);
-        afficherTimer(debutTimer); // Afficher le timer
-        refresh(); // Rafraîchir l'écran
+        afficherTimer(debutTimer);
+        refresh();
 
-        int choix = getch();//autoplayer(); // Obtenir la touche pressée
+        int choix = getch();
 
         switch (choix) {
             case 'a':
                 do {
                     carteSelectionnee = (carteSelectionnee - 1 + LIGNES * COLONNES) % (LIGNES * COLONNES);
-                } while (cartesVisibles[carteSelectionnee]); // Passer à la carte précédente non retournée
+                } while (cartesVisibles[carteSelectionnee]);
                 break;
             case 'z':
                 do {
                     carteSelectionnee = (carteSelectionnee + 1) % (LIGNES * COLONNES);
-                } while (cartesVisibles[carteSelectionnee]); // Passer à la carte suivante non retournée
+                } while (cartesVisibles[carteSelectionnee]);
                 break;
-            case 'e': // Touche "Entrée" pour retourner la carte
+            case 'e':
                 if (!timerDemarre) {
-                        debutTimer = time(NULL); // Démarrer le timer lorsque la première carte est retournée
-                        timerDemarre = true;
-                    }
+                    debutTimer = time(NULL);
+                    timerDemarre = true;
+                }
                 if (!cartesVisibles[carteSelectionnee]) {
                     cartesVisibles[carteSelectionnee] = true;
                     afficherCartes(cartes, cartesVisibles, carteSelectionnee);
                     refresh();
 
                     if (cartePrecedente != -1) {
-                                napms(2000);
+                        napms(2000);
                         if (cartes[carteSelectionnee] == cartes[cartePrecedente]) {
                             printw("\nBravo ! Vous avez trouvé une paire.\n");
                             pairesTrouvees++;
@@ -159,13 +147,28 @@ int main() {
                 break;
         }
 
-        napms(100); // Ajouter un léger délai pour améliorer la lisibilité
+        napms(100);
     }
 
     printw("\nFélicitations ! Vous avez trouvé toutes les paires.\n");
-    afficherTimer(debutTimer); // Afficher le temps total
+    afficherTimer(debutTimer);
+}
 
-    endwin(); // Terminer l'environnement ncurses
+
+int main() {
+    initscr();
+    curs_set(0);
+    noecho();
+    start_color();
+    init_pair(1, COLOR_RED, COLOR_BLACK);
+    init_pair(2, COLOR_GREEN, COLOR_BLACK);
+    raw();
+    keypad(stdscr, TRUE);
+    nodelay(stdscr, TRUE);
+
+    jouerMemory();  // Appeler la fonction pour jouer au Memory
+
+    endwin();
 
     return 0;
 }
