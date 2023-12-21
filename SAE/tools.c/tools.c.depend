@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1702996288 source:/home/fv306702/Documents/SAE/tools.c/tools.c
+	<stdio.h>
+	<stdlib.h>
+	<ncurses.h>
+
+1702997424 /home/fv306702/Documents/SAE/tools.c/tools.h
+
+1702997433 source:/home/fv306702/Documents/SAE/tools.c/main.c
+	<stdio.h>
+	<stdlib.h>
+	"tools.h"
+

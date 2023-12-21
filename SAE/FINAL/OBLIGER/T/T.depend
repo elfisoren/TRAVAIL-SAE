@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1703146796 source:/home/fv306702/Documents/SAE/FINAL/OBLIGER/T/Tools.c
+	<stdio.h>
+	<stdlib.h>
+	<ncurses.h>
+
+1703146473 source:/home/fv306702/Documents/SAE/FINAL/OBLIGER/T/main.c
+	<stdio.h>
+	<stdlib.h>
+	"Tools.h"
+
+1703146807 /home/fv306702/Documents/SAE/FINAL/OBLIGER/T/Tools.h
+	<stdio.h>
+	<stdlib.h>
+	<ncurses.h>
+

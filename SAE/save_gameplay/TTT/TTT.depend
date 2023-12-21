@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1703163970 source:/home/fv306702/Documents/SAE/save_gameplay/TTT/Tools.c
+	<stdio.h>
+	<stdlib.h>
+	<ncurses.h>
+	<time.h>
+
+1703161711 source:/home/fv306702/Documents/SAE/save_gameplay/TTT/main.c
+	<stdio.h>
+	<stdlib.h>
+	"Tools.h"
+	<ncurses.h>
+	<time.h>
+
+1703161696 /home/fv306702/Documents/SAE/save_gameplay/TTT/Tools.h
+	<stdio.h>
+	<stdlib.h>
+	<ncurses.h>
+	<time.h>
+

@@ -1,0 +1,8 @@
+Comment relier les pages ? :
+Réponse: Faire appel aux fonctions puis faire un refresh
+
+comment centrer les cartes si dans l'affichage il y à l'utilisation de box? cela se met automatiquement à la suite?
+Réponse:
+
+
+
